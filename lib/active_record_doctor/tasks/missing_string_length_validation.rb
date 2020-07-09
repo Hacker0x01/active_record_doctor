@@ -9,7 +9,7 @@ module ActiveRecordDoctor
         eager_load!
 
         success(hash_from_pairs(models.reject do |model|
-          model.table_name.nil? || model.table_name == 'schema_migrations' || !model.table_exists?
+          model.table_name.nil? || model.table_name == 'schema_migrations' || model.table_name == 'ar_internal_metadata' || !model.table_exists?
         end.map do |model|
           [
             model.name,
