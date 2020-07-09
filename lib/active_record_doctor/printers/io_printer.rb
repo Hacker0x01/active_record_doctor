@@ -87,7 +87,8 @@ EOS
         return if missing_string_length_validators.empty?
 
         @io.puts('The following models and columns should have length validations:')
-        missing_string_length_validators.each do |model_name, array_of_columns|
+        missing_string_length_validators.keys.sort.each do |model_name|
+          array_of_columns = missing_string_length_validators[model_name].sort
           @io.puts("  #{model_name}: #{array_of_columns.join(', ')}")
         end
       end
