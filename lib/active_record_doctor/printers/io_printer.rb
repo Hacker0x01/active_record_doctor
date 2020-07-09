@@ -83,6 +83,15 @@ EOS
         end
       end
 
+      def missing_string_length_validation(missing_string_length_validators)
+        return if missing_string_length_validators.empty?
+
+        @io.puts('The following models and columns should have length validations:')
+        missing_string_length_validators.each do |model_name, array_of_columns|
+          @io.puts("  #{model_name}: #{array_of_columns.join(', ')}")
+        end
+      end
+
       def missing_non_null_constraint(missing_non_null_constraints)
         return if missing_non_null_constraints.empty?
 
