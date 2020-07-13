@@ -8,6 +8,7 @@ require "active_record_doctor/tasks/missing_unique_indexes"
 require "active_record_doctor/tasks/missing_presence_validation"
 require "active_record_doctor/tasks/missing_non_null_constraint"
 require "active_record_doctor/tasks/incorrect_boolean_presence_validation"
+require "active_record_doctor/tasks/missing_string_length_validation"
 
 namespace :active_record_doctor do
   def mount(task_class)
